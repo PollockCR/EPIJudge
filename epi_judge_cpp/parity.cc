@@ -8,7 +8,7 @@ How would you compute the parity of a very large number of 64-bit words?
 */
 #include "test_framework/generic_test.h"
 short Parity(unsigned long long x) {
-  int numOnes = 0;
+  short numOnes = 0;
   while(x){
     numOnes ^= x & 1;
     x >>= 1;
