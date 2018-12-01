@@ -1,9 +1,24 @@
+/* 6.6 BUY AND SELL A STOCK ONCE
+Write a program that takes an array denoting the daily stock price, and returns the
+maximum profit that could be made by buying and then selling one share of that
+stock.
+*/
+
 #include <vector>
 #include "test_framework/generic_test.h"
 using std::vector;
 double BuyAndSellStockOnce(const vector<double>& prices) {
-  // TODO - you fill in here.
-  return 0.0;
+  double lowestSoFar = std::numeric_limits<double>::max();
+  double maxProfit = 0.0;
+  for(const double price : prices){
+    if(price < lowestSoFar){
+      lowestSoFar = price;
+    }
+    else if(price - lowestSoFar > maxProfit){
+      maxProfit = price - lowestSoFar;
+    }
+  }
+  return maxProfit;
 }
 
 int main(int argc, char* argv[]) {
