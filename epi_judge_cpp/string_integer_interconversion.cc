@@ -2,14 +2,43 @@
 #include "test_framework/generic_test.h"
 #include "test_framework/test_failure.h"
 using std::string;
-
+using namespace std;
 string IntToString(int x) {
-  // TODO - you fill in here.
-  return "";
+  string xString = "";
+  bool isNegative = false;
+  if(x == 0){
+    return "0";
+  }
+  if(x < 0){
+    isNegative = true;
+  }
+  while(x){
+    xString += '0' + abs(x % 10);
+    x /= 10;
+  }
+  if(isNegative){
+    xString += '-';
+  }
+  return {xString.rbegin(), xString.rend()};
 }
 int StringToInt(const string& s) {
-  // TODO - you fill in here.
-  return 0;
+  string sCopy = s;
+  int sInt = 0;
+  int tenMult = 1;
+  while(!sCopy.empty()){
+    char letter = sCopy.back();
+    sCopy.pop_back();
+    if(letter == '-'){
+      sInt *= -1;
+    }
+    else
+    {
+      sInt += (letter - '0') * tenMult;
+      tenMult *= 10;
+    }
+  }
+  cout << sInt << endl;
+  return sInt;
 }
 void Wrapper(int x, const string& s) {
   if (IntToString(x) != s) {
