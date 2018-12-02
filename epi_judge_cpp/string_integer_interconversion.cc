@@ -22,23 +22,11 @@ string IntToString(int x) {
   return {xString.rbegin(), xString.rend()};
 }
 int StringToInt(const string& s) {
-  string sCopy = s;
-  int sInt = 0;
-  int tenMult = 1;
-  while(!sCopy.empty()){
-    char letter = sCopy.back();
-    sCopy.pop_back();
-    if(letter == '-'){
-      sInt *= -1;
-    }
-    else
-    {
-      sInt += (letter - '0') * tenMult;
-      tenMult *= 10;
-    }
+  int result = 0;
+  for(int digit = (s[0] == '-' ? 1 : 0); digit < s.size(); digit++){
+    result = (result * 10) + s[digit] - '0';
   }
-  cout << sInt << endl;
-  return sInt;
+  return (s[0] == '-' ? result * -1 : result);
 }
 void Wrapper(int x, const string& s) {
   if (IntToString(x) != s) {
