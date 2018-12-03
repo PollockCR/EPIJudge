@@ -1,9 +1,21 @@
 #include "list_node.h"
 #include "test_framework/generic_test.h"
+
+void AppendNode(shared_ptr<ListNode<int>> * node, shared_ptr<ListNode<int>> * tail){
+  (*tail)->next = *node;
+  *tail = (*tail)->next;
+  *node = (*node)->next;
+}
+
 shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                               shared_ptr<ListNode<int>> L2) {
-  // TODO - you fill in here.
-  return nullptr;
+  shared_ptr<ListNode<int>> head(new ListNode<int>);
+  auto tail = head;
+  while(L1 && L2){
+    AppendNode(L1->data < L2->data ? &L1 : &L2, &tail);
+  }
+  tail->next = L1 ? L1 : L2;
+  return head->next;
 }
 
 int main(int argc, char* argv[]) {
