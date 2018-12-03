@@ -1,27 +1,41 @@
 #include <stdexcept>
+#include <stack>
 #include "test_framework/generic_test.h"
 #include "test_framework/serialization_traits.h"
 #include "test_framework/test_failure.h"
 using std::length_error;
-
+using namespace std;
 class Stack {
  public:
   bool Empty() const {
-    // TODO - you fill in here.
-    return true;
+    return myStack.empty();
   }
   int Max() const {
-    // TODO - you fill in here.
-    return 0;
+    if(Empty()){
+      throw length_error("Max() Error: empty stack");
+    }
+    return myStack.top().max;
   }
   int Pop() {
-    // TODO - you fill in here.
-    return 0;
+    if(Empty()){
+      throw length_error("Pop() Error: empty stack");
+    }
+    int poppedVal = myStack.top().value;
+    myStack.pop();
+    return poppedVal;
   }
   void Push(int x) {
-    // TODO - you fill in here.
+    Element xEl;
+    xEl.value = x;
+    xEl.max = (Empty() || Max() < x) ? x : Max();
+    myStack.push(xEl);
     return;
   }
+ private:
+   struct Element {
+     int value, max;
+   };
+   stack<Element> myStack;
 };
 struct StackOp {
   std::string op;
