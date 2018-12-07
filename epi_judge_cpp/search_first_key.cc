@@ -14,7 +14,7 @@ int SearchFirstOfKHelper(const int start, const int end, const vector<int>& A, i
     }
     return mid+1;
     */
-    // approach from EPI solution: continue binary search_first_key
+    // approach w/ hint from EPI: continue binary search_first_key
     if(start == mid){
       return mid;
     }
