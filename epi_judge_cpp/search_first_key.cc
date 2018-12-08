@@ -1,3 +1,8 @@
+/* 12.1 SEARCH A SORTED ARRAY FOR FIRST OCCURRENCE OF k
+Write a method that takes a sorted array and a key and returns the index of the
+first occurrence of that key in the array.
+*/
+
 #include <vector>
 #include "test_framework/generic_test.h"
 using std::vector;

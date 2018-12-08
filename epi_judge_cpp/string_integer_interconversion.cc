@@ -1,3 +1,12 @@
+/* 7.1 INTERCONVERT STRINGS AND INTEGERS
+A string is a sequence of characters. A string may encode an integer, e.g., "123"
+encodes 123. In this problem, you are to implement methods that take a string
+representing an integer and return the corresponding integer, and vice versa. Your
+code should handle negative integers. You cannot use library functions like stoi in
+C++ and parselnt in Java.
+Implement string/integer inter-conversion functions.
+*/
+
 #include <string>
 #include "test_framework/generic_test.h"
 #include "test_framework/test_failure.h"

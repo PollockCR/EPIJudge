@@ -1,3 +1,8 @@
+/* 9.1 IMPLEMENT A STACK WITH MAX API
+Design a stack that includes a max operation, in addition to push and pop. The max
+method should return the maximum value stored in the stack.
+*/
+
 #include <stdexcept>
 #include <stack>
 #include "test_framework/generic_test.h"

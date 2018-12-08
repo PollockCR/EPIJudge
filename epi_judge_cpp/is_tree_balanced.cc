@@ -1,3 +1,8 @@
+/* 10.l TEST IF A BINARY TREE IS HEIGHT-BALANCED
+Write a program that takes as input the root of a binary tree and checks whether the
+tree is height-balanced.
+*/
+
 #include "binary_tree_node.h"
 #include "test_framework/generic_test.h"
 
